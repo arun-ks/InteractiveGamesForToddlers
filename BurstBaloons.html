@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blob Fun</title>
+    <title>Colorful Burst Balloons</title>
     <style>
         body {
             margin: 0;
@@ -20,15 +20,18 @@
             pointer-events: auto;
             transform-origin: center bottom;
             animation-timing-function: ease-out;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%);
         }
         @keyframes fall {
             0% {
                 transform: translateY(0) scaleY(1);
                 opacity: 1;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
             }
             100% {
                 transform: translateY(100vh) scaleY(1);
                 opacity: 0;
+                box-shadow: none;
             }
         }
         @keyframes pop {
@@ -47,8 +50,6 @@
     <div id="container"></div>
     <audio id="popSound"></audio>
     <script>
-        const container = document.getElementById("container");
-        const popSound = document.getElementById("popSound");
         let blobs = [];
 
         function createBlob() {
@@ -58,7 +59,7 @@
             blob.style.width = size + "px";
             blob.style.height = size + "px";
             blob.style.left = Math.random() * (window.innerWidth - size) + "px";
-            blob.style.backgroundColor = getRandomColor();
+            blob.style.backgroundColor = getRandomColor(); // Random background color
             container.appendChild(blob);
 
             blob.addEventListener("mousedown", popBlob);
@@ -70,7 +71,7 @@
 
         function animateBlob(blob) {
             const duration = 5000;
-            blob.style.transition = `transform 0s linear, opacity ${duration}ms ease-out`;
+            blob.style.transition = `transform 0s linear, opacity ${duration}ms ease-out, box-shadow ${duration}ms ease-out`;
             blob.style.animation = `fall ${duration}ms forwards`;
             blob.addEventListener("animationend", () => {
                 blob.remove();
@@ -104,10 +105,12 @@
             return color;
         }
 
+        // Create the first 5 blobs with a 0.05-second gap
         for (let i = 0; i < 5; i++) {
             setTimeout(createBlob, i * 50);
         }
 
+        // Create blobs indefinitely with a 0.4-second interval
         setInterval(() => {
             createBlob();
         }, 400);
