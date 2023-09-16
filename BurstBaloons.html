@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blob Fun</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: auto;
+            transform-origin: center bottom;
+            animation-timing-function: ease-out;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0) scaleY(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) scaleY(1);
+                opacity: 0;
+            }
+        }
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <audio id="popSound"></audio>
+    <script>
+        const container = document.getElementById("container");
+        const popSound = document.getElementById("popSound");
+        let blobs = [];
+
+        function createBlob() {
+            const blob = document.createElement("div");
+            blob.className = "blob";
+            const size = Math.random() * 100 + 50;
+            blob.style.width = size + "px";
+            blob.style.height = size + "px";
+            blob.style.left = Math.random() * (window.innerWidth - size) + "px";
+            blob.style.backgroundColor = getRandomColor();
+            container.appendChild(blob);
+
+            blob.addEventListener("mousedown", popBlob);
+            blob.addEventListener("touchstart", popBlob);
+
+            blobs.push(blob);
+            animateBlob(blob);
+        }
+
+        function animateBlob(blob) {
+            const duration = 5000;
+            blob.style.transition = `transform 0s linear, opacity ${duration}ms ease-out`;
+            blob.style.animation = `fall ${duration}ms forwards`;
+            blob.addEventListener("animationend", () => {
+                blob.remove();
+            });
+        }
+
+        function popBlob(event) {
+            const blob = event.target;
+            blob.style.animation = "none";
+            blob.style.opacity = "0";
+            playRandomPopSound();
+            setTimeout(() => {
+                blob.remove();
+            }, 200);
+        }
+
+        function playRandomPopSound() {
+            const randomSoundIndex = Math.floor(Math.random() * 3);
+            const soundFile = `sounds/pop${randomSoundIndex}.mp3`;
+            popSound.src = soundFile;
+            popSound.currentTime = 0;
+            popSound.play();
+        }
+
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createBlob, i * 50);
+        }
+
+        setInterval(() => {
+            createBlob();
+        }, 400);
+    </script>
+</body>
+</html>
