@@ -1,6 +1,6 @@
-# InteractiveGamesForToddlers
-Interactive Games For Toddlers to play on touch screen
+# Simple Interactive Games For Toddlers
 
+Intuitive, interactive Games For Toddlers to play on touch screen
 
 | Name | Game Play | Age level |
 |-------|----------|------------|
