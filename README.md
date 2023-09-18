@@ -25,7 +25,7 @@ Once the final code is generated, the following prompt was used to generate prom
 > The prompt should be detailed so that if some other use sends the same prompt, an almost identical html file would be generated.
 
 <details open>
-<summary>ChatGPT prompt to generate[Burst Balloons Game](BurstBaloons.html)  </summary>
+<summary>ChatGPT prompt to generate [Burst Balloons Game](BurstBaloons.html)  </summary>
 
 Create an HTML webpage with an interactive animation. The animation should involve colorful blobs falling from the top of the screen to the bottom. When a blob reaches the bottom, it should pop or explode with a sound effect. Users should also be able to click or touch a blob to make it pop instantly with a sound effect.
 
