@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toddler Alphabet Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%; /* Set container height to 100% */
+        }
+
+        .box {
+            position: absolute;
+            width: 15%; /* Set box width to 15% */
+            height: 15%; /* Set box height to 15% */
+            background-color: #3498db; /* Light blue background color */
+            border: 2px solid hsl( Math.random() * 360, 100%, 65% ); /* Slightly darker border */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transform: perspective(1000px) rotateX(10deg); /* Add 3D effect */
+            transition: transform 0.2s;
+        }
+        .boxxy {
+            position: absolute;
+            width: 15%; /* Set box width to 15% */
+            height: 15%; /* Set box height to 15% */
+            background-color: hsl( Math.random() * 360, 100%, 75% ); /* Random bright color */
+            border: 2px solid hsl( Math.random() * 360, 100%, 65% ); /* Slightly darker border */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transform: perspective(1000px) rotateX(10deg); /* Add 3D effect */
+            transition: transform 0.2s;
+        }
+
+        .box.correct {
+            background-color: hsl( Math.random() * 360, 100%, 75% ); /* Random bright color */
+            border: 2px solid hsl( Math.random() * 360, 100%, 65% ); /* Slightly darker border */
+            animation: halo 1s infinite;
+        }
+
+        @keyframes halo {
+            0% {
+                box-shadow: 0 0 10px 5px yellow;
+            }
+            50% {
+                box-shadow: 0 0 20px 10px yellow;
+            }
+            100% {
+                box-shadow: 0 0 10px 5px yellow;
+            }
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <div class="popup">
+        <p>Congratulations! You've completed the alphabet.</p>
+        <button onclick="restartGame()">Restart</button>
+    </div>
+
+    <audio id="wrongSound" src="sounds/oops.mp3"></audio>
+
+    <script>
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let currentIndex = 0;
+        let startIndex = 0;
+        const container = document.querySelector('.container');
+        const popup = document.querySelector('.popup');
+        const wrongSound = document.getElementById('wrongSound');
+
+        function getRandomConsecutiveLetters() {
+            startIndex = Math.floor(Math.random() * (alphabet.length - 5)); // Get a random starting index
+            const subAlphabet = alphabet.substring(startIndex, startIndex + 5); // Get 5 consecutive letters
+            return subAlphabet.split('');
+        }
+
+        function createBox(letter, index) {
+            const box = document.createElement('div');
+            box.classList.add('box');
+            box.textContent = letter;
+            box.style.left = `${5 + index * 19}%`; // Positioning logic to avoid overlap
+            box.style.top = `${Math.random() * (100 - 15)}%`; // Random vertical position within 0% to 85% of the screen height
+            box.addEventListener('click', () => checkLetter(letter));
+            container.appendChild(box);
+        }
+
+        function updateBoxes() {
+            const letters = getRandomConsecutiveLetters();
+            container.innerHTML = ''; // Clear existing boxes
+            for (let i = 0; i < 5; i++) { // Show only 5 boxes
+                createBox(letters[i], i);
+            }
+        }
+
+        function checkLetter(letter) {
+            if (letter === alphabet[startIndex + currentIndex]) {
+                currentIndex++;
+                if (currentIndex === 5) { // Check if all 5 boxes are clicked
+                    popup.style.display = 'block';
+                }
+                const boxes = document.querySelectorAll('.box');
+                boxes.forEach(box => {
+                    if (box.textContent === letter) {
+                        box.classList.add('correct'); // Add a yellow halo to the correct box
+                    }
+                });
+            } else {
+                const boxes = document.querySelectorAll('.box');
+                boxes.forEach(box => {
+                    if (box.textContent === letter) {
+                        box.style.transform = 'rotateX(10deg)'; // Apply 3D effect on wrong box
+                        wrongSound.play();
+                        setTimeout(() => {
+                            box.style.transform = 'none';
+                        }, 500);
+                    }
+                });
+            }
+        }
+
+        function restartGame() {
+            currentIndex = 0;
+            popup.style.display = 'none';
+            updateBoxes();
+        }
+
+        updateBoxes();
+    </script>
+</body>
+</html>
