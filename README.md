@@ -25,7 +25,7 @@ Once the final code is generated, the following prompt was used to generate prom
 > The prompt should be detailed so that if some other use sends the same prompt, an almost identical html file would be generated.
 
 <details closed>
-<summary>ChatGPT prompt to generate [Burst Balloons Game](BurstBaloons.html)  </summary>
+<summary>ChatGPT prompt to generate **Burst Balloons Game**  </summary>
 
 ```
  Create an HTML webpage with an interactive animation. The animation should involve colorful blobs falling from the top of the screen to the bottom. When a blob reaches the bottom, it should pop or explode with a sound effect. Users should also be able to click or touch a blob to make it pop instantly with a sound effect.
@@ -45,3 +45,59 @@ Once the final code is generated, the following prompt was used to generate prom
 ```
 
 </details>
+
+
+<details closed>
+<summary>ChatGPT prompt to generate **Sort Alphabets Game**  </summary>
+
+```
+Create an HTML5 game suitable for toddlers. The game should be a simple educational game designed to help toddlers learn the alphabet in a fun and interactive way.
+
+Here are the specific requirements for the game:
+
+1. **Game Layout**:
+   - The game should be played in a web browser and should utilize HTML5, CSS, and JavaScript.
+   - The game should be visually appealing and child-friendly.
+
+2. **Game Start**:
+   - When the game starts, it should display 5 colorful 3D boxes on the screen.
+   - Each box should contain a random letter of the alphabet. These letters should be chosen consecutively but displayed in a random order within the boxes.
+   - The boxes should be positioned randomly within the top 60% of the screen, and they should not overlap.
+
+3. **Gameplay**:
+   - The purpose of the game is to teach toddlers the correct order of the alphabet.
+   - When a toddler clicks/touches a box with the correct letter in the current alphabetical order, the box should respond as follows:
+     - The box should get a yellow halo to indicate correctness.
+     - A pleasant sound (e.g., 'correct.mp3') should play to reinforce the correct choice.
+     - The selected box should move to the bottom of the screen, next to the previous box selected in the correct order.
+   - When a toddler clicks/touches a box with an incorrect letter, the box should respond as follows:
+     - The box should shake or wobble to indicate an incorrect choice.
+     - A distinct sound (e.g., 'wrong.mp3' or 'oops.mp3') should play to provide feedback.
+     - The box should return to its original position.
+
+4. **Game Completion**:
+   - The game should end when the toddler successfully selects all 5 boxes in the correct alphabetical order.
+   - Upon completion, a congratulatory popup should appear with a message like "Congratulations! You've completed the alphabet."
+   - The popup should include an option to restart the game.
+
+5. **Visuals**:
+   - The boxes should have a 3D effect to make them visually appealing to toddlers.
+   - The background color should be child-friendly.
+   - The text inside the boxes should be large and easy to read, suitable for toddlers.
+   - The boxes and letters should have bright and attractive colors.
+   - The popup should have a child-friendly design.
+
+6. **Audio**:
+   - The game should incorporate appropriate audio feedback, including the sounds mentioned above for correct and incorrect choices.
+   - Ensure the audio is not too loud or startling for toddlers.
+
+7. **Title**:
+   - The title of the game should be "Sort Alphabet Game" to indicate its purpose.
+
+Please generate an HTML5 document that implements this game with the specified features. Ensure the code is well-structured, commented, and easy to understand. Additionally, make sure the game is responsive and suitable for both desktop and mobile devices.
+
+Feel free to use any external resources (such as audio files) to enhance the game. Thank you!
+```
+
+</details>
+
