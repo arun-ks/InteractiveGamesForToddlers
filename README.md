@@ -17,7 +17,9 @@ These use single page HTML files along with some small mp3s. You can use the onl
 ## Co-Development with ChatGPT
 Most of the games were created with ChatGPT. The quick prototyping allowed revision & refinement of requirements.
 
-The final code was created after many back-and-forth as the generated code had to be troubleshooted. I had to suggest corrections & improvements in the code till we got to the final forms.
+The final code was created after many back-and-forth as the generated code had to be troubleshooted. 
+Sometimes, I had to suggest corrections & improvements in the code till we got to the final forms. In other cases, ChatGPT helped fix my blunders quickly.
+Eventually, one gets to a stage where it is easier to fix the code, than to explain chatGPT its errors.
 
 ### Prompt to get Prompt
 Once the final code is generated, the following prompt was used to generate prompt for the thread.
