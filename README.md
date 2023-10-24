@@ -17,8 +17,10 @@ These use single page HTML files along with some small mp3s. You can use the onl
 ## Co-Development with ChatGPT
 Most of the games were created with ChatGPT. The quick prototyping allowed revision & refinement of requirements.
 
-The final code was created after many back-and-forth as the generated code had to be troubleshooted. 
+The final code was created after many back-and-forth as the generated code had to be troubleshooted.
+
 Sometimes, I had to suggest corrections & improvements in the code till we got to the final forms. In other cases, ChatGPT helped fix my blunders quickly.
+
 Eventually, one gets to a stage where it is easier to fix the code, than to explain chatGPT its errors.
 
 ### Prompt to get Prompt
@@ -26,6 +28,8 @@ Once the final code is generated, the following prompt was used to generate prom
 
 > Please give me a full chatGPT prompt which would have generated the last HTML .
 > The prompt should be detailed so that if some other use sends the same prompt, an almost identical html file would be generated.
+
+Note that the prompts below were edited manually, to align with the manually updated code.
 
 <details closed>
 <summary>ChatGPT prompt to generate Burst Balloons Game  </summary>
@@ -104,3 +108,25 @@ Feel free to use any external resources (such as audio files) to enhance the gam
 
 </details>
 
+
+<details closed>
+<summary>ChatGPT prompt to generate Spin Letters Game  </summary>
+
+```
+Create an HTML5 page for a toddler game with the following features:
+- The game should display a circle that covers 90% of the visible window.
+- Inside the circle, there should be 1 alphabetic character. This can be randomly chosen as upper case or lower casse 
+- The circle should initially appear with the first set of characters.
+- When a user taps or clicks on the circle, it should perform a spinning animation for 2 seconds, mimicking the way a coin spins when tossed.
+- During the spinning animation, the circle should rotate along the vertical axis.
+- After the spinning animation ends, a new random  English letters should replace the previous characters inside the circle.
+- The circle should react to user input, so if the user clicks while it's spinning, it should complete the current animation and then perform the spinning again.
+- The game should prevent multiple simultaneous spins (no double-clicking during a spin).
+- The font size of the characters inside the circle should be large enough to cover approximately 90% of the circle's area.
+- The circle and characters should have appropriate color schemes and styles for toddlers (e.g., bright colors, bold letters).
+- The game should be simple and user-friendly, designed for toddlers to interact with and enjoy.
+
+Please generate the full HTML code for this toddler game based on the given specifications. Ensure that the spinning animation and character replacement work as described, and provide an example audio file or placeholder for it.
+```
+
+</details>
