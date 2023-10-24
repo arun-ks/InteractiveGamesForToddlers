@@ -31,7 +31,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 8em;
+            font-size: 10em;
             color: #ffffff;
             font-weight: bold;
             cursor: pointer;
@@ -47,7 +47,7 @@
     </div>
 
     <audio id="audio" preload="auto">
-        <source src="sounds/TwoSecondMusic.mp3" type="audio/mpeg">
+        <source src="sounds/coinflip.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -59,15 +59,20 @@
         function generateRandomLetter() {
             const randomCharCode = Math.floor(Math.random() * 26) + 65; // ASCII code for A-Z
             const randomLetter = String.fromCharCode(randomCharCode);
-            circle.textContent = randomLetter + randomLetter.toLowerCase();
+            if (Math.round(Math.random())) {
+                 circle.textContent = randomLetter ; //+ randomLetter.toLowerCase();
+            } else {
+            	   circle.textContent = randomLetter.toLowerCase();
+            }
         }
 
         function spinCircle() {
+        	 circle.textContent = " "
             if (!spinning) {
                 spinning = true;
                 circle.style.transition = 'transform 2s ease-in-out';
                 circle.style.transform = 'rotateX(1440deg)';
-                //audio.play();
+                audio.play();
 
                 setTimeout(() => {
                     circle.style.transition = 'none';
