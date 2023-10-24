@@ -1,6 +1,8 @@
 # Simple Interactive Games For Toddlers
 
-Intuitive, interactive Games For Toddlers to play on touch screen
+Intuitive, interactive Games For Toddlers to play on touch screen.
+
+**You can use the live version [here](https://arun-ks.github.io/ToddlerGames/).**
 
 ## Game list
 | Name | Game Play | Age level |
@@ -8,11 +10,16 @@ Intuitive, interactive Games For Toddlers to play on touch screen
 |[Burst Balloons](https://arun-ks.github.io/ToddlerGames/BurstBaloons.html) | Pop Balls falling from top of the screen | 1.5 years+ | 
 |[Sort Alphabet](https://arun-ks.github.io/ToddlerGames/SortAlphabets.html) | Click on alphabet in correct sequence  | 3 years+ |
 |[Spin Letters](https://arun-ks.github.io/ToddlerGames/SpinLetters.html) | Spin Coin to see a new letter of the alphabet | 2 years+ |
+|TBD | Make balls/snowflake? bounce by shaking the screen  | 1.5 years+ |
+|TBD | Keyboard piano, click a key to hear randomly assigned sounds  | 2 years+ |
 |TBD | Hold screen for few seconds  | 4 years+ |
 
 
 ## Installation
-These use single page HTML files along with some small mp3s. You can use the online version [here](https://arun-ks.github.io/ToddlerGames/).
+These use single page HTML files along with some small mp3s taken from [Pixabay](https://pixabay.com/). 
+
+Download all files in this repo & click on index.html to start your journey.
+
 
 ## Co-Development with ChatGPT
 Most of the games were created with ChatGPT. The quick prototyping allowed revision & refinement of requirements.
@@ -128,5 +135,8 @@ Create an HTML5 page for a toddler game with the following features:
 
 Please generate the full HTML code for this toddler game based on the given specifications. Ensure that the spinning animation and character replacement work as described, and provide an example audio file or placeholder for it.
 ```
-
 </details>
+
+
+
+##
