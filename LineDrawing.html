@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Drawing Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const canvas = document.getElementById("gameCanvas");
+            const context = canvas.getContext("2d");
+            let drawing = false;
+            let fadeTimeout;
+            let currentColor;
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            canvas.addEventListener("mousedown", startDrawing);
+            canvas.addEventListener("mousemove", drawLine);
+            canvas.addEventListener("mouseup", stopDrawing);
+            canvas.addEventListener("touchstart", startDrawing);
+            canvas.addEventListener("touchmove", drawLine);
+            canvas.addEventListener("touchend", stopDrawing);
+
+            function startDrawing(event) {
+                clearTimeout(fadeTimeout);
+
+                drawing = true;
+                context.beginPath();
+                context.moveTo(getX(event), getY(event));
+                currentColor = getRandomColor();
+            }
+
+            function drawLine(event) {
+                if (!drawing) return;
+
+                context.lineTo(getX(event), getY(event));
+                context.lineWidth = 20; // Double thickness
+                context.lineCap = "round";
+                context.strokeStyle = currentColor;
+                context.stroke();
+            }
+
+            function stopDrawing() {
+                drawing = false;
+                fadeOutPreviousLine();
+            }
+
+            function getX(event) {
+                return event.clientX || event.touches[0].clientX;
+            }
+
+            function getY(event) {
+                return event.clientY || event.touches[0].clientY;
+            }
+
+            function fadeOutPreviousLine() {
+                fadeTimeout = setTimeout(() => {
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                }, 1000);
+            }
+
+            function getRandomColor() {
+                const letters = "0123456789ABCDEF";
+                let color = "#";
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+        });
+    </script>
+</body>
+</html>
