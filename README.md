@@ -7,13 +7,13 @@ Intuitive, interactive Games For Toddlers to play on touch screen.
 ## Game list
 | Name | Game Play | Age level |
 |-------|----------|------------|
-|[Burst Balloons](https://arun-ks.github.io/ToddlerGames/BurstBaloons.html) | Pop Balls falling from top of the screen | 1.5 years+ | 
-|[Sort Alphabet](https://arun-ks.github.io/ToddlerGames/SortAlphabets.html) | Click on alphabet in correct sequence  | 3 years+ |
-|[Spin Letters](https://arun-ks.github.io/ToddlerGames/SpinLetters.html) | Spin Coin to see a new letter of the alphabet | 2 years+ |
-|[Line Drawing](https://arun-ks.github.io/ToddlerGames/LineDrawing.html) | Use finger to draw lines on screen. If you do not draw for 3 consecutive seconds, the screen will be cleared. | 1.5 years+ |
-|TBD | Make balls/snowflake? bounce by shaking the screen  | 1.5 years+ |
-|TBD | Keyboard piano, click a key to hear randomly assigned sounds  | 2 years+ |
-|TBD | Hold screen for few seconds  | 4 years+ |
+|[Burst Balloons](https://arun-ks.github.io/ToddlerGames/BurstBaloons.html) | Pop Balls falling from top of the screen | +1.5 years | 
+|[Sort Alphabet](https://arun-ks.github.io/ToddlerGames/SortAlphabets.html) | Click on alphabet in correct sequence  | +3 years |
+|[Spin Letters](https://arun-ks.github.io/ToddlerGames/SpinLetters.html) | Spin Coin to see a new letter of the alphabet | +2 years |
+|[Line Drawing](https://arun-ks.github.io/ToddlerGames/LineDrawing.html) | Use finger to draw lines on screen. If you do not draw for 3 consecutive seconds, the screen will be cleared. | +1.5 years |
+|TBD | Make balls/snowflake? bounce by shaking the screen  | +1.5 years |
+|TBD | Keyboard piano, click a key to hear randomly assigned sounds  | +2 years |
+|TBD | Hold screen for few seconds  | +4 years |
 
 
 ## Installation
