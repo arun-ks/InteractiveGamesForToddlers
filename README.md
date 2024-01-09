@@ -10,6 +10,7 @@ Intuitive, interactive Games For Toddlers to play on touch screen.
 |[Burst Balloons](https://arun-ks.github.io/ToddlerGames/BurstBaloons.html) | Pop Balls falling from top of the screen | 1.5 years+ | 
 |[Sort Alphabet](https://arun-ks.github.io/ToddlerGames/SortAlphabets.html) | Click on alphabet in correct sequence  | 3 years+ |
 |[Spin Letters](https://arun-ks.github.io/ToddlerGames/SpinLetters.html) | Spin Coin to see a new letter of the alphabet | 2 years+ |
+|[Line Drawing](https://arun-ks.github.io/ToddlerGames/LineDrawing.html) | Use finger to draw lines on screen. If you do not draw for 3 consecutive seconds, the screen will be cleared. | 1.5 years+ |
 |TBD | Make balls/snowflake? bounce by shaking the screen  | 1.5 years+ |
 |TBD | Keyboard piano, click a key to hear randomly assigned sounds  | 2 years+ |
 |TBD | Hold screen for few seconds  | 4 years+ |
@@ -138,5 +139,18 @@ Please generate the full HTML code for this toddler game based on the given spec
 </details>
 
 
+<details closed>
+<summary>ChatGPT prompt to generate Line Drawing Game  </summary>
+
+```
+Create a simple HTML5 game for toddler using a canvas element that allows users to draw lines & has the following features:
+- The play screen should cover the entire screen. When the user drags the mouse or finger over the screen, a thick multicolor line should be drawn.
+- When the user releases the mouse or lifts the finger, the line should slowly start to fade, eventually fading out over 3 seconds.
+- There is no restriction on the length of the line-drawing, and while the previous line is fading out, the user should be able to create a new line.
+- The line should have a double thickness of 20 pixels, and different sections of the line should have different colors instead of the entire line changing color.
+- The background color of the page should be light gray (#f0f0f0).
+
+```
+</details>
 
 ##
